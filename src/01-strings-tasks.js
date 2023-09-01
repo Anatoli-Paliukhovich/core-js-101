@@ -52,7 +52,7 @@ function getStringLength(value) {
  *   'Chuck','Norris'  => 'Hello, Chuck Norris!'
  */
 function getStringFromTemplate(firstName, lastName) {
-  return `Hello, ${firstName} ${lastName}`;
+  return 'Hello,' + ' ' + firstName + lastName + "!";
 }
 
 /**
@@ -126,8 +126,9 @@ function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const newStr = str.replace(value, '');
+  return newStr;
 }
 
 /**
@@ -141,8 +142,8 @@ function removeFirstOccurrences(/* str, value */) {
  *   '<span>' => 'span'
  *   '<a>' => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  return str.slice(1, -1);
 }
 
 
@@ -175,8 +176,8 @@ function convertToUpperCase(str) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
@@ -202,8 +203,14 @@ function extractEmails(/* str */) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const firstRow = `\u250c${'\u2500'.repeat(width - 2)}\u2510\n`;
+  const midRows = `\u2502${' '.repeat(width - 2)}\u2502\n`;
+  const lastRow = `\u2514${'\u2500'.repeat(width - 2)}\u2518\n`;
+
+  const rect = firstRow + midRows.repeat(height - 2) + lastRow;
+
+  return rect;
 }
 
 
@@ -269,8 +276,13 @@ function isString(value) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const valueStr = value.split(',');
+  const output = [];
+  valueStr.forEach((item, index) => {
+    output.push(index);
+  });
+  return output;
 }
 
 
