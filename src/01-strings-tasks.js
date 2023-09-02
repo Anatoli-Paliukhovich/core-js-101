@@ -231,10 +231,10 @@ function getRectangleString(width, height) {
  *
  */
 function encodeToRot13(str) {
-  const alfabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  const reversedAlfabet = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+  const alfabet = ' ?!ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  const reversedAlfabet = ' ?!NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
   let result = '';
-  for (let i = 0; i < str.length; i + 1) {
+  for (let i = 0; i < str.length; i += 1) {
     const index = alfabet.indexOf(str[i]);
     result += reversedAlfabet[index];
   }
